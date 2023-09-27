@@ -6,9 +6,7 @@ export default class App {
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
-		console.log("Je suis prêt");
 		var app = document.getElementById("app");
-		// app.innerHTML = "La page est chargée";
 	}
 	/**
 	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal
@@ -20,4 +18,3 @@ export default class App {
 		});
 	}
 }
-App.init();
