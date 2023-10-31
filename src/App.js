@@ -1,20 +1,38 @@
-/**
- * @module App
- */
+
 export default class App {
 	/**
 	 * Méthode principale. Sera appelée après le chargement de la page.
 	 */
 	static main() {
 		var app = document.getElementById("app");
+		this.chargerJson("test.json").then(function(json) {
+			console.log(json);
+		}).catch(function(error) {
+			console.error(error);
+		});
 	}
-	/**
-	 * Méthode qui permet d'attendre le chargement de la page avant d'éxécuter le script principal
-	 * @returns undefined Ne retourne rien
-	 */
-	static init() {
-		window.addEventListener("load", () => {
-			this.main();
+	static chargerJson(url) {
+		return new Promise(function(resolve, reject) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url);
+			xhr.responseType = "json";
+			xhr.addEventListener("load", e => {
+				if (xhr.status >= 200 && xhr.status < 300) {
+					resolve(xhr.response);
+				} else {
+					reject({
+						status: xhr.status,
+						statusText: xhr.statusText
+					});
+				}
+			});
+			xhr.addEventListener("error", e => {
+				reject({
+					status: xhr.status,
+					statusText: xhr.statusText
+				});
+			});
+			xhr.send();
 		});
 	}
 }
