@@ -5,32 +5,21 @@ export default class App {
 	 */
 	static main() {
 		var app = document.getElementById("app");
-		this.chargerJson("test.json").then(function(json) {
-			console.log(json);
-		}).catch(function(error) {
-			console.error(error);
+		this.chargerJson("fichier.json").then(donnees =>{
 		});
 	}
+	/**
+	 * Charge un fichier JSON.
+	 * @param {string} url URL du fichier JSON ou de l'API
+	 * @returns {Promise} Promise résolue avec le JSON
+	 */
 	static chargerJson(url) {
-		return new Promise(function(resolve, reject) {
+		return new Promise(function(resolve) {
 			var xhr = new XMLHttpRequest();
 			xhr.open("GET", url);
 			xhr.responseType = "json";
 			xhr.addEventListener("load", e => {
-				if (xhr.status >= 200 && xhr.status < 300) {
-					resolve(xhr.response);
-				} else {
-					reject({
-						status: xhr.status,
-						statusText: xhr.statusText
-					});
-				}
-			});
-			xhr.addEventListener("error", e => {
-				reject({
-					status: xhr.status,
-					statusText: xhr.statusText
-				});
+				resolve(xhr.response);
 			});
 			xhr.send();
 		});
