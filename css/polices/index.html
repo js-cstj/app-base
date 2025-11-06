@@ -7,11 +7,6 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
 	<script type="module">
-		var card = ``;
-		card += `<h1>Exploration des fonds marins : À la découverte des merveilles cachées sous l'océan</h1>`;
-		card += `<p>La plongée sous-marine est bien plus qu'un simple loisir ; c'est une aventure qui vous emmène dans un royaume d'une beauté extraordinaire. Les récifs de corail multicolores, les poissons exotiques aux couleurs vives, et les créatures marines fascinantes vous attendent.</p>`;
-		card += `<h2>Plongez dans le monde mystérieux des abysses où la faune et la flore marines révèlent leur splendeur.</h2>`;
-		card += `<p>Rejoignez-nous pour une exploration inoubliable des profondeurs de la mer, où chaque plongée révèle de nouvelles surprises. C'est une opportunité de découvrir la diversité de la vie marine et de sensibiliser à l'importance de la préservation de nos océans pour les générations futures.</p>`;
 		var styles = {
 			"Artistic and Handcrafted": "#artistic-handcrafted{--font-heading 'Poiret One', cursive;--font-subheading;'Indie Flower', cursive;--font-body;'Dancing Script', cursive}",
 			"Bold and Playful": "#bold-playful{--font-heading: 'Fredoka One', sans-serif;--font-subheading: 'Oswald', sans-serif;--font-body: 'Nunito', sans-serif}",
@@ -35,15 +30,12 @@
 		};
 		var style = document.head.appendChild(document.createElement("style"));
 		style.innerHTML = Object.values(styles).join("\n");
+		var cardTemplate = document.getElementById("template-card").content;
 		for (let nom in styles) {
-			var fieldset = document.createElement("fieldset");
-			fieldset.classList.add("card");
-			let legend = fieldset.appendChild(document.createElement("legend"));
-			legend.innerHTML = nom;
-			fieldset.id = styles[nom].slice(1).split("{")[0];
-			var div = fieldset.appendChild(document.createElement("div"));
-			div.innerHTML = card;
-			document.querySelector("main").appendChild(fieldset);
+			let card = cardTemplate.cloneNode(true);
+			card.querySelector("fieldset").id = styles[nom].slice(1).split("{")[0];
+			card.querySelector("legend").innerHTML = nom;
+			document.querySelector("main").appendChild(card);
 		}
 	</script>
 </head>
@@ -55,6 +47,17 @@
 		</header>
 		<main></main>
 	</div>
+	<template id="template-card">
+		<fieldset class="card">
+			<legend>Modern Sans-Serif</legend>
+			<div>
+				<h1>Exploration des fonds marins : À la découverte des merveilles cachées sous l'océan</h1>
+				<p>La plongée sous-marine est bien plus qu'un simple loisir ; c'est une aventure qui vous emmène dans un royaume d'une beauté extraordinaire. Les récifs de corail multicolores, les poissons exotiques aux couleurs vives, et les créatures marines fascinantes vous attendent.</p>
+				<h2>Plongez dans le monde mystérieux des abysses où la faune et la flore marines révèlent leur splendeur.</h2>
+				<p>Rejoignez-nous pour une exploration inoubliable des profondeurs de la mer, où chaque plongée révèle de nouvelles surprises. C'est une opportunité de découvrir la diversité de la vie marine et de sensibiliser à l'importance de la préservation de nos océans pour les générations futures.</p>
+			</div>
+		</fieldset>
+	</template>
 </body>
 
 </html>

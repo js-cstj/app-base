@@ -68,17 +68,5 @@ main {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: .5em;
-}
-
-
-#artistic-handcrafted {
-    --font-heading: 'Poiret One', cursive;
-    --font-subheading: 'Indie Flower', cursive;
-    --font-body: 'Dancing Script', cursive;
-}
-
-#corporate {
-    --font-heading: 'Lato', sans-serif;
-    --font-subheading: 'Open Sans', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+	padding-bottom: 2em;
 }
