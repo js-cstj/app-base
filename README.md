@@ -16,8 +16,7 @@ Il y a plusieurs façons d'installer et d'utiliser cette application de base.
 
 ## Préparation
 
-1. Au besoin, renommer le dossier selon l'application à créer.
-2. **Important** Supprimer le contenu du `#app` dans le fichier `index.html`.
-3. Adapter le `header` et le `footer` du fichier `index.html` selon les besoins.
-4. Choisir un [thème de polices](css/polices/index.html) dans le fichier `style.scss`. (Au besoin, supprimer les thèmes non utilisés du dossier `css/polices`)
-5. Modifier la méthode `main()` du fichier `src/App.js` en fonction des besoins.
+1. Renommer le dossier selon l'application à créer.
+2. Adapter le `header` et le `footer` du fichier `index.html` selon les besoins.
+3. Choisir un [thème de polices](css/polices/index.html) dans le fichier `style.css`. (Au besoin, supprimer les thèmes non utilisés du dossier `css/polices`)
+4. Modifier la méthode `main()` du fichier `src/App.js` en fonction des besoins.
