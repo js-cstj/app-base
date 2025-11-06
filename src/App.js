@@ -14,7 +14,12 @@ export default class App {
 	 * @param {string} url URL du fichier JSON ou de l'API
 	 * @returns {Promise} Promise résolue avec le JSON
 	 */
-	static chargerJson(url) {
-		return fetch(url).then(reponse => reponse.json());
+	static chargerJson2(url) {
+		return fetch(url).then(reponse => {
+			if (!reponse.ok) {
+				throw new Error(`Erreur HTTP, statut ${reponse.status}`);
+			}
+			return reponse.json();
+		});
 	}
 }
