@@ -1,4 +1,7 @@
-nav {
+#interface>nav {
+	display: flex;
+	justify-content: space-between;
+	background-color: hsl(var(--h), var(--s), calc(var(--l) - 10%));
 	ul {
 		list-style: none;
 		display: flex;
@@ -13,8 +16,7 @@ nav {
 
 				&:hover {
 					text-decoration: underline;
-					background: #333;
-					color: #fff;
+					background: hsl(var(--h), var(--s), calc(var(--l) - 25%));
 				}
 			}
 		}
